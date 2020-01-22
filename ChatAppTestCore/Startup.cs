@@ -19,6 +19,8 @@ namespace ChatAppTestCore
 {
     public class Startup
     {
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -73,6 +75,9 @@ namespace ChatAppTestCore
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            
         }
+
+    
     }
 }

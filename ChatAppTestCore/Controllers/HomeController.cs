@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebApplication3.Controllers
@@ -14,6 +15,7 @@ namespace WebApplication3.Controllers
     public class HomeController : Controller
     {
 
+        
         public readonly ApplicationDbContext _context;
         public readonly UserManager<AppUser> _userManager;
 
@@ -48,15 +50,37 @@ namespace WebApplication3.Controllers
             return Error();
         }
 
+        [Authorize(Roles ="Admin")]
         public IActionResult Privacy()
         {
-            return View();
+            return View(_context.Messages.ToList());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        
+
+        //gia to delete ton messages
+
+       
+        public ActionResult DeleteMessage (int? id)
+        {
+            Message message = _context.Messages.Find(id);
+            return View(message);
+        }
+        
+        [HttpPost, ActionName("DeleteMessage")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Message message = _context.Messages.Find(id);
+            _context.Messages.Remove(message);
+            _context.SaveChanges();
+            return RedirectToAction("Privacy");
         }
     }
 }

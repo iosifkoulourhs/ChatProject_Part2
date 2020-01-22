@@ -257,6 +257,9 @@ namespace ChatAppTestCore.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
                     b.HasDiscriminator().HasValue("AppUser");
                 });
 

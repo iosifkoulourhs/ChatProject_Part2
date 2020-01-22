@@ -8,6 +8,8 @@ namespace ChatAppTestCore.Models
 {
     public class AppUser : IdentityUser
     {
+
+        public int Count { get; set; }
         public AppUser()
         {
             Messages = new HashSet<Message>();

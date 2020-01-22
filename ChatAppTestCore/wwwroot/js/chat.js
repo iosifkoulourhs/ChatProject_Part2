@@ -47,6 +47,7 @@ function addMessageToChat(message) {
     sender.innerHTML = message.userName;
     let text = document.createElement('p');
     text.innerHTML = message.text;
+    
 
     let when = document.createElement('span');
     when.className = isCurrentUserMessage ? "time-left" : "time-right";
@@ -60,5 +61,6 @@ function addMessageToChat(message) {
     container.appendChild(sender);
     container.appendChild(text);
     container.appendChild(when);
+    
     chat.appendChild(container);
 }

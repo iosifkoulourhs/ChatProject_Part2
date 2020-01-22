@@ -4,29 +4,27 @@
     var userName = User.Identity.Name;
 }
 
-
-
 @section scripts{
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/js/chat.js"></script>
-    <script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/lib/emoj/inputEmoji.js"></script>
-    <script src="~/signalr/signalr.min.js"></script>
-    <script src="~/js/signrReHandler.js"></script>
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.min.js"></script>
+        <script src="~/signalr/signalr.min.js"></script>
+        <script src="~/js/chat.js"></script>
+        <script src="~/js/signrReHandler.js"></script>
+        <script src="~/lib/emoj/inputEmoji.js"></script>
 
-<script>
-     //$("#messageText").emojioneArea({ pickerPosition: "bottom" });
-    $("#messageText").emoji({
-        fontSize: '20px'
-    });
-</script>
-
+        <script>
+            $("#messageText").emoji({
+                fontSize: '20px'
+            });
+        </script>
 }
 
-<div class="jumbotron bg-light">
-    <h2 class="text-center text-primary">
-        <i class="fab fa-facebook-messenger"></i>&nbsp;  Public Talk
+
+<div @*class="jumbotron bg-light"*@>
+    @*background chat*@
+    <h2 class="publictalk">
+        @*<i class="fab fa-facebook-messenger"></i>&nbsp;*@  Public Talk
     </h2>
 
     <div class="row">
@@ -38,29 +36,31 @@
                     string containerClass, timePosition, textAlign, contcolor, offset;
                     if (userName == message.UserName)
                     {
-                        containerClass = "container darker";
-                        timePosition = "time-right text-light";
-                        textAlign = "text-right text-white";
-                        contcolor = "bg-primary";
+                        containerClass = "container";
+                        timePosition = "time-right text-black";
+                        textAlign = "text-right text-black";
+                        contcolor = "none"; /*bg-primary*/
                         offset = "col-md-6 offset-md-6";
+
                     }
                     else
                     {
                         containerClass = "container";
-                        timePosition = "time-left";
+                        timePosition = "time-left text-black";
                         textAlign = "text-left";
-                        contcolor = "bg-light";
+                        contcolor = "none";
                         offset = "";
                     }
 
                     <div class="row">
                         <div class="@offset">
                             <div class="@containerClass @contcolor">
-                                <p class="send @textAlign">@message.UserName</p>
+                                @*<p class="send @textAlign">@message.UserName</p>*@
                                 <p class="@textAlign">@message.Text</p>
                                 <span class="@timePosition">@message.When.ToString()</span>
                             </div>
                         </div>
+
                     </div>
                 }
             }
@@ -71,10 +71,11 @@
                   data-ajax-failure="alert('Fail')" data-ajax-success="sendMessage"
                   data-ajax="true" data-ajax-method="POST">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <input name="Text" class="form-control" id="messageText" />
+                <div class="msger-inputarea">
+                    @*allazei to css tou text inout*@
+                    <input name="Text" class="form-control" id="messageText" placeholder="Message here" />
                 </div>
-                <div class="form-group">
+                <div class="btn">
                     <input type="submit" value="Send" id="sumbitButton" class="btn" />
                 </div>
                 <input type="hidden" value="@userName" name="username" />
@@ -82,13 +83,54 @@
         </div>
     </div>
 </div>
-
 @if (User.Identity.IsAuthenticated)
 {
     <script>
-        const userName = "@ViewBag.CurrentUsserName";
-
+       const userName = "@ViewBag.CurrentUsserName";
     </script>
 }
+<style>
+
+    .btn {
+        width: 100%;
+        background: none;
+        border: 2px solid #4caf50;
+        color: white;
+        padding: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 0px 0;
+    }
+
+    .msger-inputarea {
+        border: 2px solid #4caf50;
+        color: green;
+        display: flex;
+        padding: 5px;
+        background: none;
+    }
+
+        .msger-inputarea * {
+            padding: 10px;
+            border: 2px solid #4caf50;
+            border-radius: 3px;
+            font-size: 1em;
+            background-color: #6B5B95;
+        }
+
+
+    .jumbotron bg-light h2 {
+        color: forestgreen;
+    }
+
+    .publictalk {
+        color: white;
+        text-align: center;
+    }
+
+    #chat {
+        overflow-y: auto;
+    }
+</style>
 
 

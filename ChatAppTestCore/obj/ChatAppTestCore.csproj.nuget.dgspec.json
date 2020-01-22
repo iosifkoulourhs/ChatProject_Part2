@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Micro\\source\\repos\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore.csproj": {}
+    "C:\\Users\\thaso\\Desktop\\testst\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Micro\\source\\repos\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore.csproj": {
+    "C:\\Users\\thaso\\Desktop\\testst\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Micro\\source\\repos\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore.csproj",
+        "projectUniqueName": "C:\\Users\\thaso\\Desktop\\testst\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore.csproj",
         "projectName": "ChatAppTestCore",
-        "projectPath": "C:\\Users\\Micro\\source\\repos\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore.csproj",
-        "packagesPath": "C:\\Users\\Micro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Micro\\source\\repos\\ChatAppTestCore\\ChatAppTestCore\\obj\\",
+        "projectPath": "C:\\Users\\thaso\\Desktop\\testst\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore.csproj",
+        "packagesPath": "C:\\Users\\thaso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thaso\\Desktop\\testst\\ChatAppTestCore\\ChatAppTestCore\\ChatAppTestCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Micro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thaso\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
